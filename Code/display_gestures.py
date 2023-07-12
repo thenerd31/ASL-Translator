@@ -2,12 +2,13 @@ import cv2
 import os
 import random
 import numpy as np
+from pathlib import Path
 
 def get_image_size():
     img = cv2.imread('gestures/0/A100.jpg', 0)
     return img.shape
-
-gestures = os.listdir('gestures/')
+root_dir = Path(__file__).parents[1]
+gestures = os.listdir(str(root_dir)+'/gestures/')
 gestures.sort(key=int)
 image_x, image_y = get_image_size()
 
